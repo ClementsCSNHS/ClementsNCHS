@@ -13,7 +13,7 @@ Assigned roles & Project info: link later
 1. Make sure you have Git--search up "git for mac/windows" online and follow the instructions to download
 2. Open terminal in a new folder
 3. Type "git init"
-4. Type "git clone https://github.com/ClementsCSNHS/ClementsDECA.git"
+4. Type "git clone https://github.com/ClementsCSNHS/ClementsCSNHS.git"
 * If it asks you to verify username credentials, use your github username and a personal access token (PAT) as your password.
 * You can create a PAT on Github by clicking on your profile picture > Settings > Developer Settings > Personal Access Tokens > Tokens (classic) > Generate new token. Make sure you set the main "repo" scope.
   
