@@ -1,16 +1,30 @@
-# React + Vite
+# Clements NCHS
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Assigned roles & Project info: link later
 
-Currently, two official plugins are available:
+# The contribution process is as follows:
+- Find an issue (listed below) that is open 
+- Implement whatever feature in that issue
+- Push your changes to our Github Repo by creating a new branch (if you haven’t joined the GH org (https://github.com/ClementsCSNHS), please give us your github username so we can add you as a contributor)
+- Let one of us (officer team) know so we can review your code
+- If it is good, we’ll merge it into the main branch. Good Job!
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# How to use GitHub?
+1. Make sure you have Git--search up "git for mac/windows" online and follow the instructions to download
+2. Open terminal in a new folder
+3. Type "git init"
+4. Type "git clone https://github.com/ClementsCSNHS/ClementsNCHS.git"
+* If it asks you to verify username credentials, use your github username and a personal access token (PAT) as your password.
+* You can create a PAT on Github by clicking on your profile picture > Settings > Developer Settings > Personal Access Tokens > Tokens (classic) > Generate new token. Make sure you set the main "repo" scope.
+  
+Now you have a copy of the project! 
 
-## React Compiler
+5. Edit and track changes using a JavaScript build tool (I would recommend pairing React with Vite (npm install, npm run dev) to aid with development)
+6. After editing, create a new branch: "git checkout -b your-branch-name"
+7. "git add ."
+8. "git commit -m "Describe the changes made in this commit" "
+9. Finally, "git push origin your-branch-name"
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Congrats! And if you have any questions, ask an officer!
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
