@@ -1,9 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/News.css';
 
 const CALENDAR_EMBED = 'https://calendar.google.com/calendar/embed?src=YOUR_CALENDAR_ID&ctz=America%2FChicago&color=%23c98a1a';
-import { posts } from '../data/posts.jsx';
+
+const postModules = import.meta.glob('/src/data/posts/*.md', { eager: true });
+
+function slugify(title) {
+  return title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+}
+
+const posts = Object.values(postModules)
+  .map((mod) => {
+    const fm = mod.frontmatter ?? {};
+    return {
+      id: fm.slug || slugify(fm.title || ''),
+      title: fm.title || '',
+      date: fm.date || '',
+      excerpt: fm.excerpt || '',
+      image: fm.image || null,
+    };
+  })
+  .sort((a, b) => new Date(b.date) - new Date(a.date));
 
 const archiveMonths = [
   { label: 'September 2025', count: 1 },
