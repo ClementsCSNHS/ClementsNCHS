@@ -6,7 +6,9 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Points from './pages/Points';
 import News from './pages/News';
+import NewsPost from './pages/NewsPost';
 import FAQ from './pages/Faq';
+import Volunteering from './pages/Volunteering';
 
 function App() {
   return (
@@ -18,7 +20,9 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/points" element={<Points />} />
           <Route path="/news" element={<News />} />
+          <Route path="/news/:id" element={<NewsPost />} />
           <Route path="/faq" element={<FAQ />} />
+          <Route path="/volunteering" element={<Volunteering />} />
         </Routes>
         <Footer />
       </div>

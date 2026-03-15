@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Lato:wght@300;400;700&display=swap');
+
+:root {
+  --peach: #F9D39F;
+  --peach-light: #FDE8C4;
+  --peach-dark: #e8b96a;
+  --pink: #CF6382;
+  --text-dark: #3a2e22;
+  --text-mid: #6b5740;
+  --text-light: #9a7e62;
+  --white: #fff;
+}
+
+.newspost-page {
+  font-family: 'Lato', sans-serif;
+  background: linear-gradient(160deg, var(--peach-light) 0%, var(--peach) 60%, #fad59d 100%);
+  min-height: 100vh;
+  padding: 4rem 8vw 6rem;
+}
+
+.newspost-inner {
+  max-width: 820px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 20px;
+  padding: 3rem 3.5rem;
+  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.newspost-back {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--pink);
+  text-decoration: none;
+  margin-bottom: 1.8rem;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.newspost-back:hover {
+  border-bottom-color: var(--pink);
+}
+
+.newspost-date {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: 0.5rem;
+}
+
+.newspost-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 700;
+  color: var(--pink);
+  margin: 0 0 1.2rem;
+  line-height: 1.2;
+}
+
+.newspost-divider {
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--pink), var(--peach-dark));
+  border-radius: 2px;
+  margin-bottom: 2rem;
+}
+
+.newspost-img-wrap {
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+}
+
+.newspost-img-wrap img {
+  width: 100%;
+  max-height: 480px;
+  object-fit: cover;
+  display: block;
+}
+
+.newspost-body {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--text-mid);
+}
+
+.newspost-body p {
+  margin: 0 0 1.2rem;
+}
+
+.newspost-notfound {
+  font-family: 'Lato', sans-serif;
+  background: linear-gradient(160deg, var(--peach-light) 0%, var(--peach) 60%, #fad59d 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  color: var(--text-dark);
+}
+
+@media (max-width: 600px) {
+  .newspost-inner {
+    padding: 2rem 1.4rem;
+  }
+}

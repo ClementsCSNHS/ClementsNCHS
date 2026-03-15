@@ -1,46 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@300;400;700&display=swap');
+
 .footer {
-  background-color: #ae536d; 
-  padding: 20px 0;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  border-top: 1px solid #813d50; 
-  color: #ffffff; 
+  position: relative;
+  background: linear-gradient(135deg, #a34e68 0%, #ae536d 60%, #b8596e 100%);
+  color: #fff8ee;
+  font-family: 'Lato', sans-serif;
+  overflow: hidden;
 }
 
-.footer-content {
+.footer-glow {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 80px;
+  background: radial-gradient(ellipse, rgba(255, 224, 174, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.footer-inner {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 30px;
+  padding: 28px 40px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  position: relative;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.footer-brand-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #ffe0ae;
+}
+
+.footer-brand-sub {
+  font-size: 0.72rem;
+  font-weight: 300;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: #fff8ee;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  padding: 7px 16px 7px 8px;
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+  backdrop-filter: blur(4px);
+}
+
+.footer-pill:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 224, 174, 0.5);
+  transform: translateY(-2px);
+}
+
+.footer-pill-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.footer-pill-icon svg {
+  width: 14px;
+  height: 14px;
+}
+
+.footer-pill-icon--gold {
+  background: #c98a1a;
+  color: #1a1a1a;
+}
+
+.footer-pill-icon--green {
+  background: #8aaa3c;
+  color: #1a1a1a;
+}
+
+.footer-pill-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+
+.footer-pill-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
+.footer-pill-value {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #ffe0ae;
+}
+
+.footer-copy {
+  font-size: 0.85rem;
+  font-weight: 500;
+  opacity: 0.8;
+  letter-spacing: 0.04em;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 12px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 0.9rem;
   flex-wrap: wrap;
+  gap: 8px;
 }
 
-.footer-left {
-  font-weight: 500;
-  color: #ffffff;
+.footer-disclaimer {
+  font-size: 0.7rem;
+  opacity: 0.55;
+  font-style: italic;
+  line-height: 1.6;
+  margin: 0;
 }
 
-.footer-right a {
-  color: #ffe0ae; 
+.footer-credit {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #ffe0ae;
   text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s ease;
+  opacity: 0.75;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  transition: opacity 0.2s ease;
 }
 
-.footer-right a:hover {
-  color: #ffffff;
+.footer-credit:hover {
+  opacity: 1;
   text-decoration: underline;
 }
 
-/* Mobile responsive */
-@media screen and (max-width: 600px) {
-  .footer-content {
+@media screen and (max-width: 700px) {
+  .footer-inner {
     flex-direction: column;
+    align-items: center;
     text-align: center;
-    gap: 10px;
+    padding: 24px 20px 18px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 12px 20px;
+    gap: 6px;
+  }
+
+  .footer-credit {
+    white-space: normal;
   }
 }

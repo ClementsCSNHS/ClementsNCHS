@@ -1,0 +1,20 @@
+backend:
+  name: github
+  repo: YOUR_GITHUB_USERNAME/YOUR_REPO_NAME
+  branch: main
+
+media_folder: public/assets/news
+public_folder: /assets/news
+
+collections:
+  - name: posts
+    label: Meeting Posts
+    folder: src/data/posts
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Date, name: date, widget: string, hint: "e.g. March 2025" }
+      - { label: Excerpt, name: excerpt, widget: text }
+      - { label: Image, name: image, widget: image, required: false }
+      - { label: Body, name: body, widget: markdown }

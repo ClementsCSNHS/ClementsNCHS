@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@700&display=swap');
+
+:root {
+  --peach: #F9D39F;
+  --peach-light: #FDE8C4;
+  --peach-dark: #e8b96a;
+  --pink: #CF6382;
+  --text-dark: #3a2e22;
+}
+
+.volunteering-page {
+  font-family: 'Lato', sans-serif;
+  background: linear-gradient(160deg, var(--peach-light) 0%, var(--peach) 60%, #fad59d 100%);
+  min-height: 100vh;
+}
+
+.volunteering-hero {
+  text-align: center;
+  padding: 5rem 8vw 2.5rem;
+}
+
+.volunteering-hero-label {
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--pink);
+  margin-bottom: 0.7rem;
+}
+
+.volunteering-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 4.5vw, 3.8rem);
+  color: var(--text-dark);
+  margin: 0 0 1.2rem;
+  letter-spacing: 0.04em;
+}
+
+.volunteering-title-bar {
+  width: 70px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--pink), var(--peach-dark));
+  border-radius: 2px;
+  margin: 0 auto;
+}
