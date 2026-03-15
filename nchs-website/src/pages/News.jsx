@@ -1,38 +1,23 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/News.css';
+import { posts } from '../data/posts.jsx';
 
 const CALENDAR_EMBED = 'https://calendar.google.com/calendar/embed?src=YOUR_CALENDAR_ID&ctz=America%2FChicago&color=%23c98a1a';
 
-const postModules = import.meta.glob('/src/data/posts/*.md', { eager: true });
-
-function slugify(title) {
-  return title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
-}
-
-const posts = Object.values(postModules)
-  .map((mod) => {
-    const fm = mod.frontmatter ?? {};
-    return {
-      id: fm.slug || slugify(fm.title || ''),
-      title: fm.title || '',
-      date: fm.date || '',
-      excerpt: fm.excerpt || '',
-      image: fm.image || null,
-    };
-  })
-  .sort((a, b) => new Date(b.date) - new Date(a.date));
-
 const archiveMonths = [
   { label: 'September 2025', count: 1 },
-  { label: 'March 2025', count: 3 },
-  { label: 'January 2025', count: 2 },
+  { label: 'March 2025', count: 1 },
+  { label: 'February 2025', count: 1 },
+  { label: 'January 2025', count: 1 },
+  { label: 'December 2024', count: 1 },
   { label: 'November 2024', count: 1 },
-  { label: 'October 2024', count: 1 },
+  { label: 'October 2024', count: 2 },
   { label: 'May 2024', count: 1 },
   { label: 'April 2024', count: 1 },
   { label: 'March 2024', count: 1 },
-  { label: 'February 2024', count: 2 },
+  { label: 'February 2024', count: 1 },
+  { label: 'January 2024', count: 1 },
   { label: 'December 2023', count: 1 },
   { label: 'October 2023', count: 1 },
   { label: 'September 2023', count: 1 },
@@ -47,8 +32,24 @@ const POSTS_PER_PAGE = 5;
 
 function News() {
   const [page, setPage] = useState(1);
-  const totalPages = Math.max(1, Math.ceil(posts.length / POSTS_PER_PAGE));
-  const visiblePosts = posts.slice((page - 1) * POSTS_PER_PAGE, page * POSTS_PER_PAGE);
+  const [activeMonth, setActiveMonth] = useState(null);
+
+  const filteredPosts = activeMonth
+    ? posts.filter((p) => p.date === activeMonth)
+    : posts;
+
+  const totalPages = Math.max(1, Math.ceil(filteredPosts.length / POSTS_PER_PAGE));
+  const visiblePosts = filteredPosts.slice((page - 1) * POSTS_PER_PAGE, page * POSTS_PER_PAGE);
+
+  function handleMonthClick(label) {
+    if (activeMonth === label) {
+      setActiveMonth(null);
+    } else {
+      setActiveMonth(label);
+      setPage(1);
+    }
+    document.querySelector('.news-posts-section')?.scrollIntoView({ behavior: 'smooth' });
+  }
 
   return (
     <div className="news-page">
@@ -101,7 +102,14 @@ function News() {
 
       <section className="news-posts-section">
         <div className="news-posts-header">
-          <h2 className="news-posts-title">Meeting Posts</h2>
+          <h2 className="news-posts-title">
+            {activeMonth ? `Posts from ${activeMonth}` : 'Meeting Posts'}
+          </h2>
+          {activeMonth && (
+            <button className="archive-clear" onClick={() => { setActiveMonth(null); setPage(1); }}>
+              Clear filter
+            </button>
+          )}
           <div className="news-title-bar" />
         </div>
 
@@ -109,7 +117,11 @@ function News() {
           <div className="news-posts-main">
             {visiblePosts.length === 0 ? (
               <div className="posts-empty">
-                <p>Meeting posts will appear here — check back soon!</p>
+                <p>
+                  {activeMonth
+                    ? `No posts found for ${activeMonth}.`
+                    : 'Meeting posts will appear here — check back soon!'}
+                </p>
               </div>
             ) : (
               visiblePosts.map((post) => (
@@ -165,7 +177,11 @@ function News() {
             <div className="sidebar-divider" />
             <ul className="archive-list">
               {archiveMonths.map((m) => (
-                <li key={m.label} className="archive-item">
+                <li
+                  key={m.label}
+                  className={`archive-item${activeMonth === m.label ? ' archive-item--active' : ''}`}
+                  onClick={() => handleMonthClick(m.label)}
+                >
                   {m.label} <span className="archive-count">({m.count})</span>
                 </li>
               ))}
@@ -176,6 +192,7 @@ function News() {
 
     </div>
   );
+  
 }
 
 export default News;
